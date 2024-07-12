@@ -1,8 +1,6 @@
 function ExpenseAddTab() {
 
-
-    return
-    (
+    return (
         <div className="flex w-full justify-center items-center">
             <div className="h-full px-128">
                 <span className="flex w-full justify-center items-center">
@@ -12,7 +10,7 @@ function ExpenseAddTab() {
                     <div className="">承認待ち</div>
                 </div>
             </div>
-        </div >
+        </div>
     )
 }
 
