@@ -33,10 +33,10 @@ const emotionCacheOptions = {
 		insertionPoint: document.getElementById('emotion-insertion-point')
 	}
 };
-
+ 
 /**
  * The main App component.
- */
+ */ 
 function App() {
 	/**
 	 * The language direction from the Redux store.
