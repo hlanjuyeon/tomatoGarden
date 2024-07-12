@@ -2,9 +2,9 @@ function ExpenseHistoryTab() {
 
 
     return (
-        <>
+        <div>
 ExpenseHistoryTab
-        </>
+        </div>
     )
 }
 

@@ -31,7 +31,7 @@ function ExpenseApp() {
                     label="申請履歴"
                 />
             </Tabs>
-            <div className="p-16 sm:p-24 max-w-3xl">
+            <div className="p-20 w-full h-full">
                 <div className={tabValue !== 0 ? 'hidden' : ''}>
                     <ExpenseAddTab />
                 </div>
