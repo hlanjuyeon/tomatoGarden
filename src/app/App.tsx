@@ -35,7 +35,7 @@ const emotionCacheOptions = {
 };
  
 /**
- * The main App component.
+ * The main App component.바보
  */ 
 function App() {
 	/**
