@@ -208,7 +208,10 @@ module.exports = {
 				A100: '#D5D5D5',
 				A200: '#AAAAAA',
 				A400: '#303030',
-				A700: '#616161'
+				A700: '#616161',
+				// 追加
+				G700: '#334155',
+				G500: '#64748B',
 			},
 			red: {
 				50: '#FFEBEE',
@@ -659,6 +662,9 @@ module.exports = {
 		},
 		fontFamily: {
 			sans: [
+				// 追加
+				'Noto Sans Japanese', 
+
 				'Inter var',
 				'Roboto',
 				'-apple-system',
@@ -1254,6 +1260,7 @@ module.exports = {
 			20: '2rem',
 			24: '2.4rem',
 			28: '2.8rem',
+			30: '3.0rem',
 			32: '3.2rem',
 			36: '3.6rem',
 			40: '4rem',

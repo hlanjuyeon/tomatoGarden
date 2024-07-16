@@ -26,6 +26,8 @@ function ContactsApp() {
 	useGetContactsCountriesQuery();
 	useGetContactsTagsQuery();
 
+	console.log("Con rightSidebarOpen", rightSidebarOpen);
+
 	useEffect(() => {
 		setRightSidebarOpen(Boolean(routeParams.id));
 	}, [routeParams]);
