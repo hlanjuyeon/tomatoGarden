@@ -68,6 +68,7 @@ function ExpenseItemCard() {
                     </div>
                 </Card>
             </ListItemButton>
+            <div>git push</div>
         </>
     )
 }
