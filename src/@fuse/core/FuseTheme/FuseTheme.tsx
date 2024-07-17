@@ -20,11 +20,11 @@ const inputGlobalStyles = (
 		styles={(theme) => ({
 			html: {
 				backgroundColor: `${theme.palette.background.default}!important`,
-				color: `${theme.palette.text.primary}!important`
+				color: `${theme.palette.text.primary}!important`,
 			},
 			body: {
 				backgroundColor: theme.palette.background.default,
-				color: theme.palette.text.primary
+				color: theme.palette.text.primary,
 			},
 
 			/*  'code:not([class*="language-"])': {
