@@ -9,10 +9,9 @@ import ExpenseMonthPageTab from "./ExpenseMonthPageTab";
 function ExpenseHistoryTab() {
 
 
-    return (
+    return ( 
         <>
             <ExpenseMonthPageTab />
-
             <div
                 className="w-full min-h-full text-center"
             >

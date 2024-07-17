@@ -54,7 +54,7 @@ function ExpenseMonthPageTab() {
                             </FuseSvgIcon>
                         </IconButton>
                     </Tooltip>
-                    
+
                     <Button
                         id="basic-button"
                         aria-controls={open ? 'basic-menu' : undefined}
@@ -69,7 +69,7 @@ function ExpenseMonthPageTab() {
                         anchorEl={anchorEl}
                         open={open}
                         onClose={monthIndexClose}
-                        MenuListProps={{
+                        MenuListProps={{ 
                         'aria-labelledby': 'basic-button',
                         }}
                     >
