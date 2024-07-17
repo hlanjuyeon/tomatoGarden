@@ -1,4 +1,9 @@
+import FuseSvgIcon from "@fuse/core/FuseSvgIcon";
 import { Button } from "@mui/base";
+import { IconButton, Menu, MenuItem, Tooltip } from "@mui/material";
+import React from "react";
+import ExpenseMonthPageTab from "./ExpenseMonthPageTab";
+
 
 
 function ExpenseHistoryTab() {
@@ -6,17 +11,7 @@ function ExpenseHistoryTab() {
 
     return (
         <>
-            <div className="flex w-full justify-center items-center py-10">
-                <div className=" h-full ">
-                    <span className="flex w-full justify-center items-center">
-                        <h1 className="text-black text-3xl font-semibold">2023年 04月</h1>
-                    </span>
-                    <div className="flex w-full h-22 m-auto py-6 justify-center items-center rounded-lg bg-[#FF3A47] text-white text-xl font-semibold">
-                        <div className="">却下</div>
-                    </div>
-                    <div className="text-red font-bold">※ 申請項目なし</div>
-                </div>
-            </div>
+            <ExpenseMonthPageTab />
 
             <div
                 className="w-full min-h-full text-center"
