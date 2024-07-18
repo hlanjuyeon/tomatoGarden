@@ -20,7 +20,8 @@ function ExpenseApp() {
                 onChange={handleTabChange}
                 indicatorColor="secondary"
                 textColor="secondary"
-                classes={{ root: 'w-full h-64 border-b-1' }}
+                classes={{ root: 'w-full mx-24 h-48 border-b-1' }}
+                // sx={{height: 'calc(100 * var(--vh) - 7rem)'}}
             >
                 <Tab
                     className="h-64"
@@ -31,8 +32,8 @@ function ExpenseApp() {
                     label="申請履歴"
                 />
             </Tabs>
-            {/* <div className="p-20 w-full h-full"> */}
-            <div className="p-16 sm:p-24 w-full">
+            <div className="p-24 w-full h-full">
+            {/* <div className="p-16 sm:p-24 w-full"> */}
                 <div className={tabValue !== 0 ? 'hidden' : ''}>
                     <ExpenseAddTab />
                 </div>
