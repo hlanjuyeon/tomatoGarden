@@ -67,7 +67,17 @@ function ExpenseMonthPageTab() {
                         onClose={monthIndexClose}
                         MenuListProps={{ 
                         'aria-labelledby': 'basic-button',
-                        }}                       
+                        }}
+                        slotProps={{
+                            paper: {
+                                style: {
+                                    maxHeight: 200, // 최대 높이 설정
+                                    width: '20ch', // 너비 설정
+                                    // 추가적인 스타일 설정 가능
+                                },
+                            },
+                          }}
+                                               
                     >
                         {monthList.map((month, index) => (
                             <MenuItem key={index} onClick={() => handleMonthSelect(index)}>
