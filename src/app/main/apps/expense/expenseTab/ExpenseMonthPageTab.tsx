@@ -67,7 +67,7 @@ function ExpenseMonthPageTab() {
                         onClose={monthIndexClose}
                         MenuListProps={{ 
                         'aria-labelledby': 'basic-button',
-                        }}
+                        }}                       
                     >
                         {monthList.map((month, index) => (
                             <MenuItem key={index} onClick={() => handleMonthSelect(index)}>
@@ -92,7 +92,7 @@ function ExpenseMonthPageTab() {
                      m-auto py-6 justify-center items-center rounded-lg bg-[#FF3A47] text-white text-xl font-semibold ml-30 mr-30">
                         <div className="">却下</div>
                     </div>
-                    <div className="text-red font-bold">※ 申請項目なし</div>
+                    <div className="w-2/3 text-red font-bold">※ 申請項目なし</div>
                 </div>
             </div>
             {monthList.length === 0 && (

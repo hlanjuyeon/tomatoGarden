@@ -21,8 +21,8 @@ function ExpenseHistoryTab() {
 
     return ( 
         <>
-            <ExpenseMonthPageTab />
             <div className="w-full min-h-full text-center">
+                <ExpenseMonthPageTab />
                 {/* <ng-container *ngIf="monthList.length > 0">
                     <app-employee-expense-request-history-month-pagination
                     [monthList]="monthList"
