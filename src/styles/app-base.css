@@ -1,4 +1,3 @@
-
 /*@tailwind base;*/
 
 /**
@@ -16,28 +15,33 @@
 }
 
 * :focus {
-     outline: none !important;
+    outline: none !important;
 }
 
 html {
     font-size: 62.5%;
-    font-family: 'Inter var', Roboto, Helvetica Neue, Arial, sans-serif;
+    /* font-family: 'Inter var', Roboto, Helvetica Neue, Arial, sans-serif; */
     background-color: #121212;
 }
 
 body {
-    font-size: 14px;
+    /* 追加 */
+    font-size: 13px;
+
+    /* font-size: 14px; */
     line-height: 1.4;
     overflow-x: hidden;
     font-feature-settings: "salt";
 }
 
-html, body {
+html,
+body {
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
 
-html, body {
+html,
+body {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -54,32 +58,72 @@ html, body {
     height: 100%;
 }
 
-h1, .h1 {
+追加
+/* Better spacing and border for horizontal rule */
+hr {
+    margin: 32px 0;
+    border-bottom-width: 1px;
+}
+
+/* 追加 */
+/* Make images and videos to take up all the available space */
+img {
+    width: 100%;
+    vertical-align: top;
+}
+
+/* 追加 */
+/* Fix: Disabled placeholder color is too faded on Safari */
+input[disabled] {
+    opacity: 1;
+    -webkit-text-fill-color: currentColor;
+}
+
+/* 追加 */
+/* Set the border color */
+*,
+::before,
+::after {
+    --tw-border-opacity: 1 !important;
+    border-color: rgba(var(--fuse-border-rgb), var(--tw-border-opacity));
+
+    .dark & {
+        --tw-border-opacity: 0.12 !important;
+    }
+}
+
+h1,
+.h1 {
     font-size: 24px;
 }
 
-h2, .h2 {
+h2,
+.h2 {
     font-size: 20px;
 }
 
-h3, .h3 {
+h3,
+.h3 {
     font-size: 16px;
 }
 
-h4, .h4 {
+h4,
+.h4 {
     font-size: 15px;
 }
 
-h5, .h5 {
+h5,
+.h5 {
     font-size: 13px;
 }
 
-h6, .h6 {
+h6,
+.h6 {
     font-size: 12px;
 }
 
-.ps > .ps__rail-y,
-.ps > .ps__rail-x {
+.ps>.ps__rail-y,
+.ps>.ps__rail-x {
     z-index: 99;
 }
 
@@ -95,8 +139,49 @@ a[role=button] {
     z-index: 9999;
 }
 
+/* 追加 */
+/* Style scrollbars on platforms other than MacOS and iOS */
+@media only screen and (min-width: 960px) {
+
+    body:not(.os-mac) {
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        ::-webkit-scrollbar:hover {
+            width: 8px;
+            height: 8px;
+            background-color: rgba(0, 0, 0, 0.06);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border: 2px solid transparent;
+            border-radius: 20px;
+            box-shadow: inset 0 0 0 20px rgba(0, 0, 0, 0.24);
+        }
+
+        ::-webkit-scrollbar-thumb:active {
+            border-radius: 20px;
+            box-shadow: inset 0 0 0 20px rgba(0, 0, 0, 0.37);
+        }
+
+        &.dark {
+            ::-webkit-scrollbar-thumb {
+                box-shadow: inset 0 0 0 20px rgba(255, 255, 255, 0.24);
+            }
+
+            ::-webkit-scrollbar-thumb:active {
+                box-shadow: inset 0 0 0 20px rgba(255, 255, 255, 0.37);
+            }
+        }
+    }
+}
+
 /* Medium Devices, Desktops Only */
-@media only screen and (min-width: 992px) {
+/* @media only screen and (min-width: 992px) {
     ::-webkit-scrollbar {
         width: 8px;
         height: 8px;
@@ -117,7 +202,7 @@ a[role=button] {
     ::-webkit-scrollbar-thumb:active {
         border-radius: 20px;
     }
-}
+} */
 
 form label {
     z-index: 99;
@@ -138,8 +223,7 @@ button:focus {
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
-input:-webkit-autofill:active
-{
+input:-webkit-autofill:active {
     transitionDelay: 9999s;
     transitionProperty: background-color, color;
 }
@@ -151,4 +235,20 @@ input:-webkit-autofill:active
 /*fullcalendar Fix*/
 .fc-scrollgrid-section-liquid {
     height: 1px !important;
+}
+
+/* 追加 */
+/* Print styles */
+@media print {
+
+    /* Make the base font size smaller for print so everything is scaled nicely */
+    html {
+        font-size: 12px !important;
+    }
+
+    body,
+    .dark,
+    .light {
+        background: none !important;
+    }
 }
