@@ -6,7 +6,8 @@ import ExpenseImageCard from "../ExpenseCard/ExpenseImageCard";
 import ExpenseItemCard from "../ExpenseCard/ExpenseItemCard";
 import { useParams } from "react-router-dom";
 import ExpenseItemAddCard from "../ExpenseCard/ExpenseItemAddCard";
-import ExpenseImageAddCard from "../ExpenseCard/ExpenseImageAddCard";
+import ExpenseImageAddWebCard from "../ExpenseCard/ExpenseImageAddWebCard";
+import ExpenseImageAddMobileCard from "../ExpenseCard/ExpenseImageAddMobileCard";
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
   "& .FusePageSimple-content": {
@@ -78,7 +79,8 @@ function ExpenseAddTab() {
 
               {/* 領収書の追加のBox -> Component B */}
               {/* 領収書添付の方法 : CameraとGallery */}
-              <ExpenseImageAddCard />
+              <ExpenseImageAddWebCard />
+              <ExpenseImageAddMobileCard />
               {/* <input
                             #cameraInput
                             type="file"

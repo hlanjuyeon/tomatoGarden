@@ -264,7 +264,7 @@ function ExpenseItemAdd() {
           </div>
 
           {/* Mui-ProはLicensのkeyが必要 */}
-          {/* <Controller
+          <Controller
             control={control}
             name="ticketDate"
             render={({ field: { value, onChange } }) => (
@@ -295,7 +295,7 @@ function ExpenseItemAdd() {
                 slots={{ field: SingleInputDateRangeField }}
               />
             )}
-          /> */}
+          />
 
           {/* 定期券路線 */}
           <InputLabel className="mb-5 font-semibold" required>
