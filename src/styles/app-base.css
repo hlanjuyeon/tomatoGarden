@@ -4,7 +4,7 @@
  * Custom base styles
  */
 
-* {
+ * {
     /* Text rendering */
     text-rendering: optimizeLegibility;
     -o-text-rendering: optimizeLegibility;
