@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+import ExpenseItemAdd from './ExpenseAdd/ExpenseItemAdd';
 
 
 const ExpenseApp = lazy(() => import('./ExpenseApp'));
@@ -14,19 +15,19 @@ const ExpenseAppConfig = {
 	},
 	routes: [
 		{
-			path: '/apps/expense',
+			path: 'apps/expense',
 			element: <ExpenseApp />,
 			children: [
-				// {
-				// 	path: ':id',
-				// 	element: <ContactView />
-				// },
-				// {
-				// 	path: ':id/edit',
-				// 	element: <ContactForm />
-				// }
+				{
+					path: ':id/add',
+					element: <ExpenseItemAdd />
+				},
 			]
-		}
+		},
+		// {
+		// 	path: 'apps/expense/add',
+		// 	element: <ExpenseItemAdd />
+		// },
 	]
 };
 

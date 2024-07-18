@@ -7,6 +7,7 @@ import { SystemStyleObject } from '@mui/system/styleFunctionSx/styleFunctionSx';
 import { Theme } from '@mui/system';
 import FusePageSimpleHeader from './FusePageSimpleHeader';
 import FusePageSimpleSidebar from './FusePageSimpleSidebar';
+import { purple } from '@mui/material/colors';
 
 const headerHeight = 120;
 const toolbarHeight = 64;
@@ -106,7 +107,7 @@ const Root = styled('div')<FusePageSimpleProps>(({ theme, ...props }) => ({
 		flex: '1 1 auto',
 		alignItems: 'start',
 		minHeight: 0,
-		overflowY: 'auto'
+		overflowY: 'auto',
 	},
 
 	'& .FusePageSimple-sidebarWrapper': {
@@ -150,7 +151,7 @@ const Root = styled('div')<FusePageSimpleProps>(({ theme, ...props }) => ({
 			}
 		},
 		maxWidth: '100%',
-		height: '100%'
+		height: '100%',
 	},
 
 	'& .FusePageSimple-leftSidebar': {
@@ -188,7 +189,7 @@ const Root = styled('div')<FusePageSimpleProps>(({ theme, ...props }) => ({
 	'& .FusePageSimple-sidebarContent': {
 		display: 'flex',
 		flexDirection: 'column',
-		minHeight: '100%'
+		minHeight: '100%',
 	},
 
 	'& .FusePageSimple-backdrop': {
