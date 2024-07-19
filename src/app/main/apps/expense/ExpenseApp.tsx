@@ -24,16 +24,15 @@ function ExpenseApp() {
                 // sx={{height: 'calc(100 * var(--vh) - 7rem)'}}
             >
                 <Tab
-                    className="h-64"
+                    className="h-48"
                     label="申請"
                 />
                 <Tab
-                    className="h-64"
+                    className="h-48"
                     label="申請履歴"
                 />
             </Tabs>
             <div className="p-24 w-full h-full">
-            {/* <div className="p-16 sm:p-24 w-full"> */}
                 <div className={tabValue !== 0 ? 'hidden' : ''}>
                     <ExpenseAddTab />
                 </div>
