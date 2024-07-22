@@ -15,7 +15,7 @@ function ExpenseHistoryTab() {
 
   const [expenses, setExpenses] = useState([]);
   const expenseData = {
-    "202406": [
+    "2024年6月": [
       {
         id: 1,
         date: "2024-06-01",
@@ -35,7 +35,7 @@ function ExpenseHistoryTab() {
         type: "other",
       },
     ],
-    "202407": [
+    "2024年7月": [
       {
         id: 1,
         date: "2024-07-01",
@@ -60,13 +60,17 @@ function ExpenseHistoryTab() {
   useEffect(() => {
     if (currentDate) {
       console.log(currentDate);
-      const year = parseInt(currentDate.startStr.slice(0, 4));
-      const month = parseInt(currentDate.startStr.slice(5, 7)) + 1;
+      // const { startStr } = currentDate;
+      // const year = parseInt(startStr.slice(0, 4));
+      // const month = parseInt(startStr.slice(5, 7)) + 1;
 
-      const key = year.toString() + "0" + month.toString();
+      // // const key = year.toString() + "0" + month.toString();
+      // const key = `${year}${month < 10 ? '0' + month : month}`
 
-      console.log(key, "~~", typeof key);
+      // console.log(key, "~~", typeof key);
 
+      const key = currentDate?.view.title;
+      console.log(key);
       setExpenses(expenseData[key] || []);
     }
   }, [currentDate]);
