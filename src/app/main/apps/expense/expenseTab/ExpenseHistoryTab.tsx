@@ -59,17 +59,17 @@ function ExpenseHistoryTab() {
 
   useEffect(() => {
     if (currentDate) {
-      console.log(currentDate)
-      const year = currentDate.startStr.slice(0,4) // 2024-07
-      const month = currentDate.startStr.slice(5,7);
-      console.log(year)
-      console.log(month)
-      
-      //console.log(key)
-      setExpenses(expenseData[year + ((parseInt(month) + 1))] || [])
-      console.log(typeof(parseInt(month) + 1))
+      console.log(currentDate);
+      const year = parseInt(currentDate.startStr.slice(0, 4));
+      const month = parseInt(currentDate.startStr.slice(5, 7)) + 1;
+
+      const key = year.toString() + "0" + month.toString();
+
+      console.log(key, "~~", typeof key);
+
+      setExpenses(expenseData[key] || []);
     }
-  }, [currentDate])
+  }, [currentDate]);
 
   const handleDatesSet = (arg: DatesSetArg) => {
     SetCurrentDate(arg);
