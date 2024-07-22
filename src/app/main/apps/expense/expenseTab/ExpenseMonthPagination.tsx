@@ -2,16 +2,13 @@ import FuseSvgIcon from "@fuse/core/FuseSvgIcon";
 import { Button, IconButton, Menu, MenuItem, Tooltip } from "@mui/material";
 import React, { useState } from "react";
 
-function ExpenseMonthPageTab() {
+
+function ExpenseMonthPageTab({ expenseData, setExpenses }) {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [monthIndex, setMonthIndex ] = useState(0);
 
-    const monthList = [
-        '2024年 01月', '2024年 02月', '2024年 03月', 
-        '2024年 04月', '2024年 05月', '2024年 06月', 
-        '2024年 07月', '2024年 08月', '2024年 09月', 
-        '2024年 10月', '2024年 11月', '2024年 12月'
-      ];
+
+    const monthList = Object.keys(expenseData);
     
     const open = Boolean(anchorEl);
     const monthIndexClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -31,6 +28,7 @@ function ExpenseMonthPageTab() {
     
       const handleMonthSelect = (index: number) => {
         setMonthIndex(index);
+        setExpenses(expenseData[monthList[index]]);
         monthIndexClose();
       };
 
@@ -71,9 +69,8 @@ function ExpenseMonthPageTab() {
                         slotProps={{
                             paper: {
                                 style: {
-                                    maxHeight: 200, // 최대 높이 설정
-                                    width: '20ch', // 너비 설정
-                                    // 추가적인 스타일 설정 가능
+                                    maxHeight: 200,
+                                    width: '20ch', 
                                 },
                             },
                           }}
