@@ -5,7 +5,7 @@ import { selectMainTheme } from "@fuse/core/FuseSettings/fuseSettingsSlice";
 import FuseSvgIcon from "@fuse/core/FuseSvgIcon";
 import FullCalendar from "@fullcalendar/react";
 import { DatesSetArg } from "@fullcalendar/core";
-import { MutableRefObject } from "react";
+import { MutableRefObject, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 type CalendarHeaderProps = {
@@ -23,6 +23,7 @@ function ExpenseHeader(props: CalendarHeaderProps) {
   const calendarApi = () => calendarRef.current.getApi();
 
   return (
+	<>
     <div className="flex flex-col md:flex-row w-full p-12 justify-center z-10 container">
       <div className="flex items-center">
         <Tooltip title="先月">
@@ -51,6 +52,8 @@ function ExpenseHeader(props: CalendarHeaderProps) {
         </Tooltip>
       </div>
     </div>
+
+	</>	
   );
 }
 
