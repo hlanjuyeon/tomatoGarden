@@ -3,7 +3,6 @@ import { Button } from "@mui/base";
 import { Box, IconButton, Menu, MenuItem, Modal, Paper, Tooltip, Typography } from "@mui/material";
 import React, { useState } from "react";
 import ExpenseMonthPageTab from "./ExpenseMonthPagination";
-import { style } from "@mui/system";
 
 type RegularPass = {
     duration: string;

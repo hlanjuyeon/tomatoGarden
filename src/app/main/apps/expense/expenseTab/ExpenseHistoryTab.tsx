@@ -1,16 +1,18 @@
-import FuseSvgIcon from "@fuse/core/FuseSvgIcon";
-import { Button } from "@mui/base";
-import { Box, IconButton, Menu, MenuItem, Modal, Paper, Tooltip, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import ExpenseMonthPageTab from "./ExpenseMonthPagination";
-import { style } from "@mui/system";
+import React, { useEffect, useRef, useState } from "react";
+import FullCalendar from "@fullcalendar/react";
+import ExpenseMonthPagination from "./ExpenseMonthPagination";
+import dayGridPlugin from "@fullcalendar/daygrid";
 import ExpenseList from "./ExpenseList";
 import useThemeMediaQuery from "@fuse/hooks/useThemeMediaQuery";
+import { DatesSetArg } from "@fullcalendar/core";
 
 
 function ExpenseHistoryTab() {
 
+    const [currentDate, SetCurrentDate] = useState<DatesSetArg>();
     const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down("lg"));
+    const calendarRef = useRef<FullCalendar>();
+
     const [expenses, setExpenses] = useState([]);
     const expenseData = {
         "2024-06": [
@@ -23,23 +25,47 @@ function ExpenseHistoryTab() {
         ]
     };
 
-    const getExpensesForMonth = (month: string) => {
-        return expenseData[month] || [];
-        
-    }
-
+  
     useEffect(() => {
-        // Initialize with the first month's expenses
-        const initialMonth = Object.keys(expenseData)[0];
-        setExpenses(expenseData[initialMonth]);
-    }, [expenseData]);
+        if (currentDate) {
+          console.log(currentDate);
+          // const { startStr } = currentDate;
+          // const year = parseInt(startStr.slice(0, 4));
+          // const month = parseInt(startStr.slice(5, 7)) + 1;
+    
+          // // const key = year.toString() + "0" + month.toString();
+          // const key = `${year}${month < 10 ? '0' + month : month}`
+    
+          // console.log(key, "~~", typeof key);
+    
+          const key = currentDate?.view.title;
+          console.log(key);
+          setExpenses(expenseData[key] || []);
+        }
+      }, [currentDate]);
+    
+      const handleDatesSet = (arg: DatesSetArg) => {
+        SetCurrentDate(arg);
+      };;
 
 
     return ( 
         <>
             <div className="w-full min-h-full text-center">
-                <ExpenseMonthPageTab expenseData={expenseData} setExpenses={setExpenses}/>
-              
+                <ExpenseMonthPagination currentDate={currentDate} calendarRef={calendarRef}/>
+                <div hidden>
+                    <FullCalendar
+                    plugins={[dayGridPlugin]}
+                    initialView="dayGridMonth"
+                    datesSet={handleDatesSet}
+                    locale="ja"
+                    //   events={events}
+                    headerToolbar={{
+                        center: "title",
+                    }}
+                    ref={calendarRef}
+                    />
+                </div>
                 <ExpenseList expenses={expenses} />
             </div>
         </>
