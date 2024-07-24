@@ -9,16 +9,16 @@ import { motion } from "framer-motion";
 
 function ExpenseHistoryTab() {
   const [currentDate, SetCurrentDate] = useState<DatesSetArg>();
-  const [currentMonth, setCurrentMonth] = useState("");
   const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down("lg"));
   const calendarRef = useRef<FullCalendar>();
-
   const [expenses, setExpenses] = useState([]);
+  const monthlyTotalAmount = {};
+
   const expenseData = {
     "2024年6月": [
       {
         id: 1,
-        date: "2024-06-01",
+        date: "2024/06/01",
         description: "定期券購入",
         amount: 10000,
         type: "regularPass",
@@ -29,16 +29,16 @@ function ExpenseHistoryTab() {
       },
       {
         id: 2,
-        date: "2024-06-10",
+        date: "2024/06/10",
         description: "ランチ",
-        amount: 500,
+        amount: 350,
         type: "other",
       },
     ],
     "2024年7月": [
       {
         id: 1,
-        date: "2024-07-01",
+        date: "2024/07/01",
         description: "定期券購入",
         amount: 10000,
         type: "regularPass",
@@ -49,7 +49,7 @@ function ExpenseHistoryTab() {
       },
       {
         id: 2,
-        date: "2024-07-03",
+        date: "2024/07/03",
         description: "ランチ",
         amount: 500,
         type: "other",
@@ -59,16 +59,6 @@ function ExpenseHistoryTab() {
 
   useEffect(() => {
     if (currentDate) {
-      console.log(currentDate);
-      // const { startStr } = currentDate;
-      // const year = parseInt(startStr.slice(0, 4));
-      // const month = parseInt(startStr.slice(5, 7)) + 1;
-
-      // // const key = year.toString() + "0" + month.toString();
-      // const key = `${year}${month < 10 ? '0' + month : month}`
-
-      // console.log(key, "~~", typeof key);
-
       const key = currentDate?.view.title;
       console.log(key);
       setExpenses(expenseData[key] || []);
@@ -78,6 +68,14 @@ function ExpenseHistoryTab() {
   const handleDatesSet = (arg: DatesSetArg) => {
     SetCurrentDate(arg);
   };
+
+  for (const month in expenseData) {
+    if (expenseData.hasOwnProperty(month)) {
+      const expenses = expenseData[month];
+      const totalAmount = expenses.reduce((sum, expense) => sum + expense.amount, 0);
+      monthlyTotalAmount[month] = totalAmount;
+    }
+  }
 
   return (
     <>
@@ -98,7 +96,7 @@ function ExpenseHistoryTab() {
       <div className="flex flex-row gap-12">
         <div className="flex flex-col gap-12 sm:grid-flow-row xl:grid-flow-row w-1/2">
           {/* <ExpenseList expenses={expense} /> */}
-          <ExpenseList expenses={expenses} />
+          <ExpenseList expenses={expenses} monthlyTotal={monthlyTotalAmount[currentDate?.view.title]}/>
         </div>
         영수증 나오는 곳
       </div>
