@@ -14,14 +14,32 @@ function ExpenseHistoryTab() {
     const calendarRef = useRef<FullCalendar>();
 
     const [expenses, setExpenses] = useState([]);
+    const [expenseImg, setExpenseImg] = useState([]);
+    
     const expenseData = {
+        "2024年4月": [
+            { id: 1, date: "2024-04-30", description: "花見", amount: 300, type: "other"},
+        ],
         "2024年6月": [
-            { id: 1, date: "2024-06-01", description: "定期券購入", amount: 10000, type: "regularPass", regularPass: { duration: "2024/06/01 - 2024/06/30", section: "あざみ野ー渋谷" }, expenseImage: "public/assets/images/apps/ecommerce/morain-lake.jpg"},
-            { id: 2, date: "2024-06-10", description: "ランチ", amount: 500, type: "other", expenseImage: "public\assets\images\apps\ecommerce\fall-glow.jpg"}
+            { id: 2, date: "2024-06-01", description: "定期券購入", amount: 10000, type: "regularPass", regularPass: { duration: "2024/06/01 - 2024/06/30", section: "あざみ野ー渋谷" }},
+            { id: 3, date: "2024-06-10", description: "ランチ", amount: 500, type: "other"}
         ],
         "2024年7月": [
-            { id: 3, date: "2024-07-01", description: "定期券購入", amount: 10000, type: "regularPass", regularPass: { duration: "2024/07/01 - 2024/07/31", section: "あざみ野ー渋谷" },expenseImage: "public/assets/images/apps/ecommerce/morain-lake.jpg"},
-            { id: 4, date: "2024-07-03", description: "ランチ", amount: 500, type: "other" }
+            { id: 4, date: "2024-07-01", description: "定期券購入", amount: 10000, type: "regularPass", regularPass: { duration: "2024/07/01 - 2024/07/31", section: "あざみ野ー渋谷" }},
+            { id: 5, date: "2024-07-03", description: "ランチ", amount: 500, type: "other" }
+        ]
+    };
+
+    const expenseImgData = {
+        "2024年5月": [
+            { id: 1, expenseImageSrc: "public/assets/images/cards/25-640x480.jpg"},
+        ],
+        "2024年6月": [
+            { id: 2, expenseImageSrc: "public/assets/images/apps/ecommerce/morain-lake.jpg"},
+            { id: 3, expenseImageSrc: "public/assets/images/cards/coffee-shop-02-512x512.jpg"}
+        ],
+        "2024年7月": [
+            { id: 4, expenseImageSrc: "public/assets/images/cards/25-640x480.jpg"}
         ]
     };
 
@@ -29,14 +47,6 @@ function ExpenseHistoryTab() {
     useEffect(() => {
         if (currentDate) {
           console.log(currentDate);
-          // const { startStr } = currentDate;
-          // const year = parseInt(startStr.slice(0, 4));
-          // const month = parseInt(startStr.slice(5, 7)) + 1;
-    
-          // // const key = year.toString() + "0" + month.toString();
-          // const key = `${year}${month < 10 ? '0' + month : month}`
-    
-          // console.log(key, "~~", typeof key);
     
           const key = currentDate?.view.title;
           console.log(key);
@@ -47,6 +57,14 @@ function ExpenseHistoryTab() {
       const handleDatesSet = (arg: DatesSetArg) => {
         SetCurrentDate(arg);
       };;
+
+      useEffect(() => {
+        if (currentDate) {
+          const key = currentDate?.view.title;
+          setExpenseImg(expenseImgData[key] || []);
+        }
+      }, [currentDate]);
+
 
 
     return ( 
@@ -66,7 +84,7 @@ function ExpenseHistoryTab() {
                     ref={calendarRef}
                     />
                 </div>
-                <ExpenseList expenses={expenses} />
+                <ExpenseList expenses={expenses} expenseImg={expenseImg}/>
             </div>
         </>
     )

@@ -16,23 +16,31 @@ type RegularPass = {
     amount: number;
     type: string;
     regularPass?: RegularPass;
-    expenseImage: string;
   };
+
+  type ExpenseImg = {
+    id: number;
+    expenseImageSrc: string;
+  }
   
   type ExpenseListProps = {
     expenses: Expense[];
+    expenseImg: ExpenseImg[]; 
   };
-  
 
-function ExpenseList({ expenses }: ExpenseListProps) {
+
+
+
+function ExpenseList({ expenses, expenseImg }: ExpenseListProps) {
 
     const [open, setOpen] = React.useState(false);
-    const [employeeExpenseImage, setEmployeeExpenseImage] = useState('');
+    const [expenseImage, setExpenseImage] = useState('');
 
-    const employeeExpenseImageOpen = (imageSrc) => {
-      setEmployeeExpenseImage(imageSrc);
-      setOpen(true);
-  };
+    const employeeExpenseImageOpen = (imageSrc: string) => {
+        setExpenseImage(imageSrc);
+        setOpen(true);
+    };
+
     const employeeExpenseImageClose = () => setOpen(false);
 
 
@@ -92,15 +100,15 @@ function ExpenseList({ expenses }: ExpenseListProps) {
                             領収書添付
                         </div>
                         <div className="flex flex-col space-y-5">
-                            {expenses.length === 0 ? (
+                            {expenseImg.length === 0 ? (
                                 <Typography className="text-lg font-semibold tracking-tight leading-6">
                                 登録された領収書がありません。
                                 </Typography>
                             ) : (
-                                expenses.map((expense) => (
-                                <Paper key={expense.id} className="relative flex flex-col shadow over flow-hidden">
-                                    <Button onClick={() => employeeExpenseImageOpen(expense.expenseImage)} >
-                                        <img src={expense.expenseImage} alt="Expense Image" className="rounded-2xl" />
+                                expenseImg.map((expenseImg) => (
+                                <Paper key={expenseImg.id} className="relative flex flex-col shadow over flow-hidden">
+                                    <Button onClick={() => employeeExpenseImageOpen(expenseImg.expenseImageSrc)} >
+                                        <img src={expenseImg.expenseImageSrc} alt="Expense Imag" className="rounded-2xl" />
                                     </Button>
                                     <Modal
                                           open={open}
@@ -117,7 +125,7 @@ function ExpenseList({ expenses }: ExpenseListProps) {
                                                 maxHeight: '90vh',
                                                 p: 4,
                                           }}>
-                                                <img src={employeeExpenseImage} alt="employeeExpenseImage" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                                                <img src={expenseImage} alt="employeeExpenseImage" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
                                                 
                                           </Box>
                                     </Modal>
