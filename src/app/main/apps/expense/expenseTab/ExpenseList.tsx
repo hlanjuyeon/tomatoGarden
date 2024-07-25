@@ -46,14 +46,14 @@ function ExpenseList({ expenses }: ExpenseListProps) {
                             <span>￥0</span>
                             {/* <span>{{ totalCost | currency : 'JPY' : 'symbol' }}</span> */}
                         </div>
-                        <div className="flex flex-col space-y-2">
+                        <div className="flex flex-col text-left space-y-2">
                             {expenses.length === 0 ? (
                                 <Typography className="text-lg font-semibold tracking-tight leading-6">
                                 登録された申請項目がありません。
                                 </Typography>
                             ) : (
                                 expenses.map((expense) => (
-                                <Paper key={expense.id} className="relative flex flex-col flex-auto p-24 pr-12 pb-12 rounded-2xl shadow overflow-hidden">
+                                <Paper key={expense.id} className="relative flex flex-col flex-auto p-20 pt-12 pr-12 pb-12 rounded-2xl shadow overflow-hidden">
                                     <div className="flex flex-col">
                                     <Typography className="text-lg font-semibold tracking-tight leading-6">
                                         {expense.date}
@@ -91,18 +91,16 @@ function ExpenseList({ expenses }: ExpenseListProps) {
                         <div className="text-left text-[#767677] font-bold ml-8 mt-15 md:mt-15 mb-5">
                             領収書添付
                         </div>
-                        <div className="flex flex-col space-y-2">
+                        <div className="flex flex-col space-y-5">
                             {expenses.length === 0 ? (
                                 <Typography className="text-lg font-semibold tracking-tight leading-6">
                                 登録された領収書がありません。
                                 </Typography>
                             ) : (
                                 expenses.map((expense) => (
-                                <Paper key={expense.id} >
-                                    <Button onClick={() => employeeExpenseImageOpen(expense.expenseImage)}>
-                                          <div className="rounded-2xl">
-                                                <img src={expense.expenseImage} alt="Expense Image" className="rounded-2xl" />
-                                          </div>
+                                <Paper key={expense.id} className="relative flex flex-col shadow over flow-hidden">
+                                    <Button onClick={() => employeeExpenseImageOpen(expense.expenseImage)} >
+                                        <img src={expense.expenseImage} alt="Expense Image" className="rounded-2xl" />
                                     </Button>
                                     <Modal
                                           open={open}

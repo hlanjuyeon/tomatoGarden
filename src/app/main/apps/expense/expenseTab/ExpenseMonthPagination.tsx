@@ -19,17 +19,12 @@ function ExpenseMonthPageTab(props: CalendarHeaderProps) {
   const mainTheme = useSelector(selectMainTheme);
   const calendarApi = () => calendarRef.current ? calendarRef.current.getApi() : null;
 
-//   useEffect(() => { // currentDate가 변경될 때마다 호출되어 선택된 월의 비용을 가져오는 fetchExpensesForMonth 함수를 호출
-//     if (currentDate) {
-//       const month = currentDate.start.getMonth();
-//       handleMonthSelect(month);
-//     }
-//   }, [currentDate]);
-
   const open = Boolean(anchorEl);
+
   const monthIndexClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
+
   const monthIndexClose = () => {
     setAnchorEl(null);
   };
@@ -87,7 +82,7 @@ function ExpenseMonthPageTab(props: CalendarHeaderProps) {
                 }}
               >
                 {expenses.map((expense, index) => (
-                  <MenuItem key={index} onClick={() => handleMonthSelect(index)}>
+                  <MenuItem key={index} onClick={monthIndexClose}>
                     <h1 className="text-black text-2xl font-semibold">{expense}</h1>
                   </MenuItem>
                 ))}
