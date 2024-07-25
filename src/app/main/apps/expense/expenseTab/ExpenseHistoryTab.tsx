@@ -51,20 +51,14 @@ function ExpenseHistoryTab() {
           const key = currentDate?.view.title;
           console.log(key);
           setExpenses(expenseData[key] || []);
-        }
-      }, [currentDate]);
-    
-      const handleDatesSet = (arg: DatesSetArg) => {
-        SetCurrentDate(arg);
-      };;
-
-      useEffect(() => {
-        if (currentDate) {
-          const key = currentDate?.view.title;
           setExpenseImg(expenseImgData[key] || []);
         }
       }, [currentDate]);
 
+          
+      const handleDatesSet = (arg: DatesSetArg) => {
+        SetCurrentDate(arg);
+      };;
 
 
     return ( 
@@ -77,11 +71,14 @@ function ExpenseHistoryTab() {
                     initialView="dayGridMonth"
                     datesSet={handleDatesSet}
                     locale="ja"
-                    //   events={events}
                     headerToolbar={{
                         center: "title",
                     }}
                     ref={calendarRef}
+                    // visibleRange={{
+                    //      start: '2024-05-01',
+                    //      end: '2024-07-31'
+                    //  }}
                     />
                 </div>
                 <ExpenseList expenses={expenses} expenseImg={expenseImg}/>
