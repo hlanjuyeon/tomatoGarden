@@ -9,13 +9,15 @@ import { useSelector } from "react-redux";
 type CalendarHeaderProps = {
   calendarRef: MutableRefObject<FullCalendar | null>;
   currentDate: DatesSetArg | null;
+  months: string[];
 };
 
+
+
 function ExpenseMonthPageTab(props: CalendarHeaderProps) {
-  const { calendarRef, currentDate } = props; //CurrentDate = FullCalendar selected date(Type DatesSetObject)
+  const { calendarRef, currentDate, months } = props; //CurrentDate = FullCalendar selected date(Type DatesSetObject)
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null); //anchorE1 : Menu open selector
-  const [monthIndex, setMonthIndex] = useState(0);
-  const [expenses, setExpenses] = useState<string[]>([]);
+  const [selectedMonth, setSelectedMonth] = useState<string | null>(null);
   const mainTheme = useSelector(selectMainTheme);
   const calendarApi = () => calendarRef.current ? calendarRef.current.getApi() : null;
 
@@ -29,10 +31,16 @@ function ExpenseMonthPageTab(props: CalendarHeaderProps) {
     setAnchorEl(null);
   };
 
-  const handleMonthSelect = (index: number) => {
-    setMonthIndex(index);
+  const handleMonthSelect = (month: string) => {
+    setSelectedMonth(month);
     monthIndexClose();
+    // Optionally, update the calendar view to the selected month
+    const calendar = calendarApi();
+    if (calendar) {
+      calendar.gotoDate(`${month}-01`);
+    }
   };
+
 
   return (
     <>
@@ -81,12 +89,14 @@ function ExpenseMonthPageTab(props: CalendarHeaderProps) {
                   },
                 }}
               >
-                {expenses.map((expense, index) => (
-                  <MenuItem key={index} onClick={monthIndexClose}>
-                    <h1 className="text-black text-2xl font-semibold">{expense}</h1>
+                {months.map((month, index) => (
+                  <MenuItem key={index} onClick={() => handleMonthSelect(month)}>
+                    <h1 className="text-black text-2xl font-semibold">{month}</h1>
                   </MenuItem>
                 ))}
+                
               </Menu>
+
 
               <Tooltip title="Next">
                 <IconButton aria-label="Next" onClick={() => calendarApi()?.next()}>

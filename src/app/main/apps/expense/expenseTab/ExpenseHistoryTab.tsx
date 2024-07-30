@@ -43,7 +43,20 @@ function ExpenseHistoryTab() {
         ]
     };
 
-  
+    // Extract months from both expenseData and expenseImgData
+    const expenseMonths = Object.keys(expenseData);
+    const expenseImgMonths = Object.keys(expenseImgData);
+
+    // Combine and deduplicate months
+    const allMonths = Array.from(new Set([...expenseMonths, ...expenseImgMonths]));
+
+    // Optionally, sort the months if needed
+    allMonths.sort((a, b) => {
+        const dateA = new Date(a.replace(/年|月/g, '/'));
+        const dateB = new Date(b.replace(/年|月/g, '/'));
+        return dateA.getTime() - dateB.getTime();
+    });
+
     useEffect(() => {
         if (currentDate) {
           console.log(currentDate);
@@ -64,7 +77,11 @@ function ExpenseHistoryTab() {
     return ( 
         <>
             <div className="w-full min-h-full text-center">
-                <ExpenseMonthPagination currentDate={currentDate} calendarRef={calendarRef}/>
+                <ExpenseMonthPagination 
+                    currentDate={currentDate} 
+                    calendarRef={calendarRef}
+                    months={allMonths} // Pass the months to ExpenseMonthPagination
+                />
                 <div hidden>
                     <FullCalendar
                     plugins={[dayGridPlugin]}
