@@ -2,6 +2,8 @@ import { styled } from "@mui/material/styles";
 import { Card } from "@mui/material"
 import React, { FC } from 'react';
 
+// Git commitのためのcomment
+
 export type FuseCardProps = {
   expanded?: boolean;
   face?: 'front' | 'back';
