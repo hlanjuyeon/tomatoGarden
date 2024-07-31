@@ -1,20 +1,11 @@
-import { Card, SvgIcon } from "@mui/material"
-import ListItemButton from '@mui/material/ListItemButton';
-import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
-import { useState } from "react";
+import { SvgIcon } from "@mui/material"
+import FuseCard from "../card/FuseCard";
 
 function ExpenseItemCard() {
 
-    // const [buttonClicked, setButtonClicked] = useState(false);
-
-    // const handleClick = () => {
-    //     setButtonClicked(true); // 버튼 클릭 시 상태를 true로 변경
-    //     onButtonClick(true); // 변경된 상태를 부모 컴포넌트로 전달
-    // };
-
     return (
         <>
-            <Card className="flex relative px-4 py-16 text-left">
+            <FuseCard className="flex relative px-4 py-16 text-left">
                 <div className="m-auto w-48 h-full">
                     <div className="w-full text-center text-3xl font-bold">1</div>
                 </div>
@@ -47,7 +38,7 @@ function ExpenseItemCard() {
                         </svg>
                     </SvgIcon>
                 </button>
-            </Card>
+            </FuseCard>
         </>
     )
 }

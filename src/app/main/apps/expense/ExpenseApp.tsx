@@ -21,7 +21,6 @@ function ExpenseApp() {
                 indicatorColor="secondary"
                 textColor="secondary"
                 classes={{ root: 'w-full mx-24 h-48 border-b-1' }}
-                // sx={{height: 'calc(100 * var(--vh) - 7rem)'}}
             >
                 <Tab
                     className="h-48"

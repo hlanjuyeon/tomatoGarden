@@ -2,23 +2,17 @@ import { Controller, useForm } from "react-hook-form";
 import TextField from "@mui/material/TextField";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Select from "@mui/material/Select";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import InputAdornment from "@mui/material/InputAdornment";
-import FormLabel from "@mui/material/FormLabel";
-import React, { useMemo, useState } from "react";
-import dayjs, { Dayjs } from "dayjs";
-import FuseSvgIcon from "@fuse/core/FuseSvgIcon";
-import { Box, Button, FormHelperText, Input } from "@mui/material";
-import FormControl, { useFormControl } from "@mui/material/FormControl";
+import { useState } from "react";
+import { Button } from "@mui/material";
+import FormControl from "@mui/material/FormControl";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import Divider from "@mui/material/Divider";
 import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
 import { SingleInputDateRangeField } from "@mui/x-date-pickers-pro/SingleInputDateRangeField";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import { LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { isString } from "lodash";
 
 const schema = z.object({
@@ -73,15 +67,6 @@ function ExpenseItemAdd() {
   const validationCost = (value) => {
     return !isFocused && (value === defaultValues.cost || isString(value));
   };
-
-  //   const validationTicketOver = (value) => {
-  //     if (validationDate(value)) {
-  //         return "正しい日付の形式(YYYY/MM/DD)で入力してください。";
-  //     } else if () {
-
-  //         return "※ 既に購入済みの定期券と期間が重複しています。";
-  //     }
-  //   }
 
   const validationRoute = (value) => {
     return !isFocused && value == defaultValues.route;

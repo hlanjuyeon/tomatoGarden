@@ -71,9 +71,8 @@ function ExpenseMonthPageTab() {
                         slotProps={{
                             paper: {
                                 style: {
-                                    maxHeight: 200, // 최대 높이 설정
-                                    width: '20ch', // 너비 설정
-                                    // 추가적인 스타일 설정 가능
+                                    maxHeight: 200,
+                                    width: '20ch', 
                                 },
                             },
                           }}
@@ -107,7 +106,6 @@ function ExpenseMonthPageTab() {
             </div>
             {monthList.length === 0 && (
                 <div className="h-[calc(100*var(--vh)-10rem)] flex flex-col justify-center items-center text-[#64748b]">
-                    {/* <IconsContext className="scale-[3.5] mb-9" svgIcon="heroicons_outline:information-circle" /> */}
                     <span>表示する履歴がありません</span>
                 </div>
             )}

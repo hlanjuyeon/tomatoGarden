@@ -1,10 +1,11 @@
-import { Card, SvgIcon } from "@mui/material"
+import { SvgIcon } from "@mui/material"
+import FuseCard from "../card/FuseCard";
 
 function ExpenseImageCard() {
 
     return (
         <>
-            <Card className="flex relative w-full border cursor-pointer">
+            <FuseCard className="flex relative w-full border cursor-pointer">
                 <img src="public/assets/images/apps/ecommerce/morain-lake.jpg" />
                 <button className="absolute top-0 right-0 inline-flex text-center justify-center items-center w-40 h-40">
                     {/* <mat-icon svgIcon="feather:trash-2" className="text-gray-500 scale-75"></mat-icon> */}
@@ -14,7 +15,7 @@ function ExpenseImageCard() {
                         </svg>
                     </SvgIcon>
                 </button>
-            </Card>
+            </FuseCard>
         </>
     )
 }

@@ -1,16 +1,9 @@
-import { Card, SvgIcon } from "@mui/material"
+import { SvgIcon } from "@mui/material"
 import ListItemButton from '@mui/material/ListItemButton';
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
-import { useState } from "react";
+import FuseCard from "../card/FuseCard";
 
 function ExpenseItemAddCard() {
-
-    // const [buttonClicked, setButtonClicked] = useState(false);
-
-    // const handleClick = () => {
-    //     setButtonClicked(true); // 버튼 클릭 시 상태를 true로 변경
-    //     onButtonClick(true); // 변경된 상태를 부모 컴포넌트로 전달
-    // };
 
     return (
         <>
@@ -21,7 +14,7 @@ function ExpenseItemAddCard() {
                 to="new/add"
                 // onClick={handleClick}
             >
-                <Card className="flex m-auto py-36 cursor-pointer w-full">
+                <FuseCard className="flex m-auto py-36 cursor-pointer w-full">
                     <div className="w-full text-center">
                         {/* <mat-icon svgIcon="heroicons_outline:plus"></mat-icon> */}
                         <SvgIcon>
@@ -30,7 +23,7 @@ function ExpenseItemAddCard() {
                             </svg>
                         </SvgIcon>
                     </div>
-                </Card>
+                </FuseCard>
             </ListItemButton>
         </>
     )
