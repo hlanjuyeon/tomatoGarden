@@ -4,9 +4,6 @@ import ExpenseItemAdd from './ExpenseAdd/ExpenseItemAdd';
 
 const ExpenseApp = lazy(() => import('./ExpenseApp'));
 
-/**
- * The ContactsApp configuration.
- */
 const ExpenseAppConfig = {
 	settings: {
 		layout: {

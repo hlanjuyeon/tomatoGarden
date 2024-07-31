@@ -1,11 +1,12 @@
 import { Card, SvgIcon } from "@mui/material"
+import FuseCard from "../card/FuseCard";
 
 function ExpenseImageAddMobileCard() {
 
     return (
         <>
             {/* mobile */}
-            <Card className="w-full cursor-pointer">
+            <FuseCard className="w-full cursor-pointer">
                 <div>
                     <div className="w-full py-36 text-center">
                         <SvgIcon>
@@ -34,7 +35,7 @@ function ExpenseImageAddMobileCard() {
                         </div>
                     </div>
                 </div>
-            </Card >
+            </FuseCard >
         </>
     )
 }

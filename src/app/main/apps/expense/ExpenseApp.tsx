@@ -1,11 +1,11 @@
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
-import { SyntheticEvent, useEffect, useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 import ExpenseAddTab from "./expenseTab/ExpenseAddTab";
 import ExpenseHistoryTab from "./expenseTab/ExpenseHistoryTab";
 
 
-function ExpenseApp() {
+function ExpenseApp() { 
 
     const [tabValue, setTabValue] = useState(0);
 
@@ -21,7 +21,6 @@ function ExpenseApp() {
                 indicatorColor="secondary"
                 textColor="secondary"
                 classes={{ root: 'w-full mx-24 h-48 border-b-1' }}
-                // sx={{height: 'calc(100 * var(--vh) - 7rem)'}}
             >
                 <Tab
                     className="h-48"

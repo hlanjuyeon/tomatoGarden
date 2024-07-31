@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import ExpenseItemAddCard from "../ExpenseCard/ExpenseItemAddCard";
 import ExpenseImageAddWebCard from "../ExpenseCard/ExpenseImageAddWebCard";
 import ExpenseImageAddMobileCard from "../ExpenseCard/ExpenseImageAddMobileCard";
+import ExpenseImageAddCard from "../ExpenseCard/ExpenseImageAddCard";
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
   "& .FusePageSimple-content": {
@@ -39,6 +40,8 @@ function ExpenseAddTab() {
           <div className="">承認待ち</div>
         </div>
       </div>
+      <br></br>
+      <div className="flex justify-center text-[#FF3A47]">※ 각하사유각하사유각하사유</div>
 
       {/* 経費請求 content */}
       <div className="w-full">
@@ -74,13 +77,12 @@ function ExpenseAddTab() {
               領収書添付
             </div>
             <div className="flex flex-col space-y-8">
-              {/* 領収書のBox -> Component B >> app-employee-expense-image-card */}
               <ExpenseImageCard />
 
-              {/* 領収書の追加のBox -> Component B */}
-              {/* 領収書添付の方法 : CameraとGallery */}
               <ExpenseImageAddWebCard />
               <ExpenseImageAddMobileCard />
+
+              <ExpenseImageAddCard />
               {/* <input
                             #cameraInput
                             type="file"

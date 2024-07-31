@@ -1,11 +1,12 @@
 import { Card, SvgIcon } from "@mui/material"
+import FuseCard from "../card/FuseCard";
 
 function ExpenseImageAddWebCard() {
 
     return (
         <>
             {/* Web */}
-            <Card className="flex m-auto py-36 cursor-pointer w-full">
+            <FuseCard className="flex m-auto py-36 cursor-pointer w-full">
                 <div className="w-full text-center">
                     <SvgIcon>
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
@@ -13,7 +14,7 @@ function ExpenseImageAddWebCard() {
                         </svg>
                     </SvgIcon>
                 </div>
-            </Card>
+            </FuseCard>
 
         </>
     )
