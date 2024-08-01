@@ -37,7 +37,12 @@ function ExpenseMonthPageTab(props: CalendarHeaderProps) {
     // Optionally, update the calendar view to the selected month
     const calendar = calendarApi();
     if (calendar) {
-      calendar.gotoDate(`${month}-01`);
+      // Change view to month view
+      calendar.changeView('dayGridMonth');  // Change view to month view
+  
+      // Move to the selected month
+      const formattedDate = `${month}-01`; // Ensure this is in 'YYYY-MM-DD' format
+      calendar.gotoDate(formattedDate);    // Use gotoDate to set the date
     }
   };
 

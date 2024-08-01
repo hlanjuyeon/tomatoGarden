@@ -92,10 +92,6 @@ function ExpenseHistoryTab() {
                         center: "title",
                     }}
                     ref={calendarRef}
-                    // visibleRange={{
-                    //      start: '2024-05-01',
-                    //      end: '2024-07-31'
-                    //  }}
                     />
                 </div>
                 <ExpenseList expenses={expenses} expenseImg={expenseImg}/>
